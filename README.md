@@ -30,3 +30,5 @@ If you wish to build it for your preferred language - feel free to do so and sen
 Known issues (covered by patches):
 1. Thread pool issue, causing the whole app to hang indefinitely
 2. Cookie auth doesn't work for the generated code (even though doc says it is supported)
+
+[1] https://github.com/skygragon/leetcode-cli
