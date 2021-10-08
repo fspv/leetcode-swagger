@@ -1,0 +1,15 @@
+script:
+  - cd python/
+  - bash -x build.sh
+  - tar czvf python-leetcode.tar.gz -C out/ .
+addons:
+  artifacts:
+    paths:
+      - python/python-leetcode.tar.gz
+deploy:
+  provider: releases
+  api_key: $GITHUB_TOKEN
+  file: python/python-leetcode.tar.gz
+  skip_cleanup: true
+  on:
+    branch: dev
