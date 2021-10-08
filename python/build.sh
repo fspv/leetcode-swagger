@@ -30,8 +30,9 @@ _JAVA_OPTIONS="--add-opens=java.base/java.util=ALL-UNNAMED" java \
 rm -rf $tmp_dir
 
 mv ${out_dir}/README.md ${out_dir}/README.generated.md
+mv ${out_dir}/setup.py ${out_dir}/setup.generated.py
+mv ${out_dir}/.travis.yml ${out_dir}/.travis.generated.yml
 
 patch -d ${out_dir} -p1 < fix_cookies.patch
 patch -d ${out_dir} -p1 < fix_thread_pool.patch
 patch -d ${out_dir} -p1 < fix_gitignore.patch
-patch -d ${out_dir} -p1 < fix_python_version.patch
