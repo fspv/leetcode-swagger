@@ -4,6 +4,9 @@ script:
   - tar czvf python-leetcode.tar.gz -C out/ .
 addons:
   artifacts:
-    debug: true
     paths:
       - python/python-leetcode.tar.gz
+deploy:
+  provider: releases
+  file: python/python-leetcode.tar.gz
+  skip_cleanup: true
