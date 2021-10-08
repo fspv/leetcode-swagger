@@ -8,6 +8,8 @@ addons:
       - python/python-leetcode.tar.gz
 deploy:
   provider: releases
+  api_key:
+    secure: "QA1g+1Ii8OWlF+I7sIWEpCZXI8fd0NICoqLn+2+4holDDD4l/Wo3dXf8fFrMGgF8udbOv64ZinjPoK1Hz9MKKMBHdvSmBcDP8Do941dV/f43dMKaFOA9FOX53kXDb8fjp+QAgXh9WYAuNKtFdpkpedosZBTB0H10RbmuNdyi8Bzrm9oXjJd0cBl+kb6aESl053/fZL2CJ0vNInH0tdOlosSrw7b+gxnOQQsbgf6BYii9gcxisdua47sELxXb2glp//7XITMpwCD3uVYPh8rdT9h6WziHpb29yETCu6pGSquo8otlqjlAGo/93OIQo7zZD5o5T0axeqAfRUmtrzCVlFVPVU4mf+oUS49JJysToNQ6l6PU07B0nlCaMUdDpoAuX7LMFFeeCTlIcgwifTh6vEJWE+Ul8qfsZgFupOl1eDxNwHLTnSx7mJ1TMVYWvv0m6a+gOGvvIZJZWU1CF9CTKhHd00dzpe3q78mG64SLOQqlnsHnhBYXHGEkLhHuOIYvRWbh4Cd+YmnqPY/QnrVAaTe4JdUZYM02pgRkzXS0PXkq6LmN+sKrNjMBPdeUeoukKQK6UNdmTmFQdcqgR5S42oWbgya625NRBSuMY6scofIfbq2uxFDdS0C36BJdgv1egjq+8485XXeTtyNC10Xf8a7RyVRLVlATfcgt1/H1wDw="
   file: python/python-leetcode.tar.gz
   skip_cleanup: true
   on:
