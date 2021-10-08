@@ -1,0 +1,9 @@
+script:
+  - cd python/
+  - bash -x build.sh
+  - tar czvf python-leetcode.tar.gz out/
+addons:
+  artifacts:
+    debug: true
+    paths:
+      - python/python-leetcode.tar.gz
