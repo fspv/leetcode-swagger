@@ -10,3 +10,5 @@ deploy:
   provider: releases
   file: python/python-leetcode.tar.gz
   skip_cleanup: true
+  on:
+    branch: dev
