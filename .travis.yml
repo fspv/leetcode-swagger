@@ -8,8 +8,7 @@ addons:
       - python/python-leetcode.tar.gz
 deploy:
   provider: releases
-  api_key:
-    secure: "af8a7kzlIun0XLQa8qAbsWWUbluLSVKVRCAPD6AR0DM28IvgQlfK+qvr5WRl/1Ijzt7ZolHpbOrGWOFio+g3c8EMCu/nthsjNW6fl9bDqaun1lNW3u5VBzupJkjXLVwtjYej8byqa8Mo5GYzS7F94iwW4MxHeaxozQCQYZ36Fm5s/55zj9Gq4rGIzfZXmRgrZu6iC/4BTVgtxq5NeJ/sHqHrZj+HhMrwAWjUmCD8whA3YW4GHRkJ6X9ySl68hQj7KP14cLoZvG9K2Hg2CWRWZ/e5rk47t8xYlOpI1+RYNLKkw/JoB1Wp/D4JFRttJPfMt1K92Yciuqo7jhE0TtMErCJti0k/vlKjDXtts6eoTOTuPNxiALqsNl482Vov8wBWkeJM7EvB0142tUUHBRayrvRJ6CSOxHI+yfDA3nUpbx2f41O3ezqtD1AaBm7oGbTwYs437D5xoswgJsVdDjcIasUxFVmVhifSeusra1uIs38vbBPm/eP1qlBWk8RV8EwkH3D6DvrzGV1nqWAKcMvNJRZeKggGxnb3HGwTzM0A5CfrI1x1S/GAJ2Th86RgXk6KDeGfQ8LA56kSfGPBdknOLA7QjViYuVYWO1Hh4WrnYFPFoerhgvwMrhNU1bo9CoRTARXCH3cf+IAZi282ZjDWEt+Mw7AadQe9BWYbEpm/Wb4="
+  api_key: $GITHUB_TOKEN
   file: python/python-leetcode.tar.gz
   skip_cleanup: true
   on:
