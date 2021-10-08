@@ -1,7 +1,7 @@
 script:
   - cd python/
   - bash -x build.sh
-  - tar czvf python-leetcode.tar.gz out/
+  - tar czvf python-leetcode.tar.gz -C out/ .
 addons:
   artifacts:
     debug: true
