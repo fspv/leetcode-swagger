@@ -45,6 +45,7 @@ components:
         code_output:
           example: ['stdout example', '']
           type: array
+          nullable: true
           items:
             type: string
         elapsed_time:
@@ -53,6 +54,7 @@ components:
         full_runtime_error:
           example: 'SyntaxError: invalid syntax\n'
           type: string
+          nullable: true
         lang:
           example: 'python'
           type: string
@@ -61,6 +63,7 @@ components:
           type: integer
         memory_percentile:
           type: number
+          nullable: true
         pretty_lang:
           example: 'Python'
           type: string
@@ -70,8 +73,10 @@ components:
         runtime_error:
           example: 'Line 5: SyntaxError: invalid syntax'
           type: string
+          nullable: true
         runtime_percentile:
           type: number
+          nullable: true
         state:
           enum: ['SUCCESS']
           type: string
@@ -81,6 +86,7 @@ components:
         status_memory:
           example: '13.1 MB'
           type: string
+          nullable: true
         status_msg:
           example: 'Runtime Error'
           type: string
@@ -96,9 +102,11 @@ components:
         total_correct:
           type: integer
           example: 1
+          nullable: true
         total_testcases:
           type: integer
           example: 52
+          nullable: true
         question_id:
           example: 1
           type: integer
@@ -117,36 +125,46 @@ components:
                 type: string
             correct_answer:
               type: boolean
+              nullable: true
             expected_status_code:
               enum: [10, 11, 15]
               type: integer
+              nullable: true
             expected_lang:
               example: 'python'
               type: string
+              nullable: true
             expected_run_success:
               type: boolean
+              nullable: true
             expected_status_runtime:
               example: "4"
               type: string
+              nullable: true
             expected_memory:
               example: 17
               type: integer
+              nullable: true
             expected_code_answer:
               example: ['[0,1]']
               type: array
+              nullable: true
               items:
                 type: string
             expected_code_output:
               example: []
               type: array
+              nullable: true
               items:
                 type: string
             expected_elapsed_time:
               example: 17
+              nullable: true
               type: integer
             expected_task_finish_time:
               example: 1627224209392
               type: integer
+              nullable: true
     SubmissionResult:
       allOf:
         - $ref: "#/components/schemas/BaseSubmissionResult"
@@ -260,11 +278,14 @@ components:
         question_id:
           type: integer
         question__article__live:
-          type: string
+          type: boolean
+          nullable: true
         question__article__slug:
           type: string
+          nullable: true
         question__article__has_video_solution:
-          type: string
+          type: boolean
+          nullable: true
         question__title:
           type: string
         question__title_slug:
@@ -292,6 +313,7 @@ components:
           $ref: '#/components/schemas/Stat'
         status:
           type: string
+          nullable: true
         difficulty:
           $ref: '#/components/schemas/Difficulty'
         paid_only:
@@ -303,7 +325,7 @@ components:
           # Provided here just for the reference, but you shouldn't count
           # on this value.
           type: number
-          exmple: 0.0
+          example: 0.0
         progress:
           type: number
     Problems:
@@ -350,40 +372,54 @@ components:
       properties:
         questionId:
           type: string
+          nullable: true
           example: "2159"
         questionFrontendId:
           type: string
+          nullable: true
           example: "2003"
         boundTopicId:
           type: string
+          nullable: true
         title:
           type: string
+          nullable: true
           example: "Two Sum"
         frequency:
           # Frequency is reported incorrectly. It is always 0.
           # Provided here just for the reference, but you shouldn't count
           # on this value.
           type: number
+          nullable: true
           example: 0.0
         content:
           type: string
+          nullable: true
           example: '<p>Given an array of integers <code>nums</code>&nbsp;and an integer <code>target</code>, return <em>indices of the two numbers such that they add up to <code>target</code></em>.</p>\n\n<p>You may assume that each input would have <strong><em>exactly</em> one solution</strong>, and you may not use the <em>same</em> element twice.</p>\n\n<p>You can return the answer in any order.</p>\n\n<p>&nbsp;</p>\n<p><strong>Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums = [2,7,11,15], target = 9\n<strong>Output:</strong> [0,1]\n<strong>Output:</strong> Because nums[0] + nums[1] == 9, we return [0, 1].\n</pre>\n\n<p><strong>Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums = [3,2,4], target = 6\n<strong>Output:</strong> [1,2]\n</pre>\n\n<p><strong>Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums = [3,3], target = 6\n<strong>Output:</strong> [0,1]\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>2 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>\n\t<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>\n\t<li><code>-10<sup>9</sup> &lt;= target &lt;= 10<sup>9</sup></code></li>\n\t<li><strong>Only one valid answer exists.</strong></li>\n</ul>\n\n<p>&nbsp;</p>\n<strong>Follow-up:&nbsp;</strong>Can you come up with an algorithm that is less than&nbsp;<code>O(n<sup>2</sup>)&nbsp;</code>time complexity?'
         translatedTitle:
           type: string
+          nullable: true
         translatedContent:
           type: string
+          nullable: true
         isPaidOnly:
           type: boolean
+          nullable: true
         difficulty:
           enum: ["Easy", "Medium", "Hard"]
+          nullable: true
         likes:
           type: integer
+          nullable: true
         dislikes:
           type: integer
+          nullable: true
         isLiked:
           type: boolean
+          nullable: true
         similarQuestions:
           type: string
+          nullable: true
           example: >
             [
               {
@@ -413,17 +449,21 @@ components:
             ]
         contributors:
           type: array
+          nullable: true
           items:
             $ref: '#/components/schemas/GraphqlQuestionContributor'
         langToValidPlayground:
           type: string
+          nullable: true
           example: '{"cpp": true, "java": true, "python": true}'
         topicTags:
           type: array
+          nullable: true
           items:
             $ref: '#/components/schemas/GraphqlQuestionTopicTag'
         companyTagStats:
           type: string
+          nullable: true
           example: >
             {
               "3": [
@@ -439,10 +479,12 @@ components:
             }
         codeSnippets:
           type: array
+          nullable: true
           items:
             $ref: '#/components/schemas/GraphqlQuestionCodeSnippet'
         stats:
           type: string
+          nullable: true
           example: >
             {
               "totalAccepted": "5M",
@@ -453,33 +495,44 @@ components:
             }
         hints:
           type: array
+          nullable: true
           items:
             type: string
             example: 'Maintain the frequency of all the points in a hash map.'
         solution:
-          $ref: '#/components/schemas/GraphqlQuestionSolution'
+          anyOf:
+            - $ref: '#/components/schemas/GraphqlQuestionSolution'
+          nullable: true
         status:
           enum: ["ac"]
+          nullable: true
         sampleTestCase:
           type: string
+          nullable: true
           example: >
             [2,7,11,15]
             9
         judgerAvailable:
           type: boolean
+          nullable: true
         judgeType:
-          enum: ["small"]
+          enum: ["small", "large"]
+          nullable: true
         mysqlSchemas:
           type: array
+          nullable: true
           items:
             type: string
             example: "Create table If Not Exists Person (PersonId int, FirstName varchar(255), LastName varchar(255))"
         enableRunCode:
           type: boolean
+          nullable: true
         enableTestMode:
           type: boolean
+          nullable: true
         envInfo:
           type: string
+          nullable: true
           example: >
             {
               "cpp": [
@@ -497,6 +550,7 @@ components:
             }
         metaData:
           type: string
+          nullable: true
           example: >
             {
               "name": "twoSum",
@@ -518,6 +572,7 @@ components:
             }
         codeDefinition:
           type: string
+          nullable: true
           example: >
             [
               {
@@ -550,6 +605,7 @@ components:
           type: string
         __typename:
           type: string
+          nullable: true
     GraphqlQuestionTopicTag:
       required:
         - name
@@ -563,8 +619,10 @@ components:
           example: 'array'
         translatedName:
           type: string
+          nullable: true
         __typename:
           enum: ['TopicTagNode']
+          nullable: true
     GraphqlQuestionCodeSnippet:
       required:
         - lang
@@ -580,7 +638,8 @@ components:
         code:
           type: string
         __typename:
-          enum: ['TopicTagNode']
+          enum: ['CodeSnippetNode']
+          nullable: true
     GraphqlQuestionSolution:
       required:
         - id
@@ -598,15 +657,19 @@ components:
       properties:
         username:
           type: string
+          nullable: true
           example: omgitspavel
         isCurrentUserPremium:
           type: boolean
+          nullable: true
     GraphqlData:
       properties:
         question:
           $ref: '#/components/schemas/GraphqlQuestionDetail'
+          nullable: true
         user:
           $ref: '#/components/schemas/GraphqlUser'
+          nullable: true
     GraphqlResponse:
       required:
         - data
@@ -688,6 +751,7 @@ components:
           $ref: '#/components/schemas/GraphqlQueryVariables'
         operationName:
           enum: ['getQuestionDetail']
+          nullable: true
 paths:
   /api/problems/{topic}/:
     get:
