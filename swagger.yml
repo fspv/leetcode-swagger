@@ -392,6 +392,10 @@ components:
           type: number
           nullable: true
           example: 0.0
+        freqBar:
+          type: number
+          nullable: true
+          example: 86.81901768265547
         content:
           type: string
           nullable: true
@@ -415,6 +419,9 @@ components:
           type: integer
           nullable: true
         isLiked:
+          type: boolean
+          nullable: true
+        isFavor:
           type: boolean
           nullable: true
         similarQuestions:
@@ -493,6 +500,10 @@ components:
               "totalSubmissionRaw": 10461934,
               "acRate": "47.6%"
             }
+        acRate:
+          type: number
+          nullable: true
+          example: 62.202435813962666
         hints:
           type: array
           nullable: true
@@ -502,6 +513,12 @@ components:
         solution:
           anyOf:
             - $ref: '#/components/schemas/GraphqlQuestionSolution'
+          nullable: true
+        hasSolution:
+          type: boolean
+          nullable: true
+        hasVideoSolution:
+          type: boolean
           nullable: true
         status:
           enum: ["ac"]
