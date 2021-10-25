@@ -364,10 +364,44 @@ components:
         category_slug:
           type: string
     GraphqlQueryVariables:
+      properties: {}
+    GraphqlQueryGetQuestionDetailVariables:
       properties:
         titleSlug:
           type: string
           example: two-sum
+    GraphqlQueryProblemsetQuestionListVariablesFilterInput:
+      properties:
+        tags:
+          type: array
+          nullable: true
+          items:
+            type: string
+            example: "array"
+        difficulty:
+          enum: ["EASY", "MEDIUM", "HARD"]
+          nullable: true
+        status:
+          enum: ["NOT_STARTED", "AC", "TRIED"]
+          nullable: true
+        listId:
+          type: string
+          example: "7p5x763"  # == Top Amazon Questions
+        premiumOnly:
+          type: boolean
+    GraphqlQueryProblemsetQuestionListVariables:
+      properties:
+        categorySlug:
+          type: string
+          example: ""
+        limit:
+          type: integer
+          example: 50
+        skip:
+          type: integer
+          example: 0
+        filters:
+          $ref: '#/components/schemas/GraphqlQueryProblemsetQuestionListVariablesFilterInput'
     GraphqlQuestionDetail:
       properties:
         questionId:
@@ -679,6 +713,15 @@ components:
         isCurrentUserPremium:
           type: boolean
           nullable: true
+    GraphqlProblemsetQuestionList:
+      properties:
+        total:
+          type: integer
+          example: 2046
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GraphqlQuestionDetail'
     GraphqlData:
       properties:
         question:
@@ -686,6 +729,9 @@ components:
           nullable: true
         user:
           $ref: '#/components/schemas/GraphqlUser'
+          nullable: true
+        problemsetQuestionList:
+          $ref: '#/components/schemas/GraphqlProblemsetQuestionList'
           nullable: true
     GraphqlResponse:
       required:
@@ -764,10 +810,42 @@ components:
             #     isCurrentUserPremium
             #   }
             # }
+            # operationName = problemsetQuestionList
+            # query problemsetQuestionList($categorySlug: String, $limit: Int, $skip: Int, $filters: QuestionListFilterInput) {
+            #  problemsetQuestionList: questionList(
+            #    categorySlug: $categorySlug
+            #    limit: $limit
+            #    skip: $skip
+            #    filters: $filters
+            #  ) {
+            #    total: totalNum
+            #    questions: data {
+            #      acRate
+            #      difficulty
+            #      freqBar
+            #      questionFrontendId
+            #      isFavor
+            #      isPaidOnly
+            #      status
+            #      title
+            #      titleSlug
+            #      topicTags {
+            #        name
+            #        id
+            #        slug
+            #      }
+            #      hasSolution
+            #      hasVideoSolution
+            #    }
+            #  }
+            #}
         variables:
-          $ref: '#/components/schemas/GraphqlQueryVariables'
+          anyOf:
+            - $ref: '#/components/schemas/GraphqlQueryVariables'
+            - $ref: '#/components/schemas/GraphqlQueryGetQuestionDetailVariables'
+            - $ref: '#/components/schemas/GraphqlQueryProblemsetQuestionListVariables'
         operationName:
-          enum: ['getQuestionDetail']
+          enum: ['getQuestionDetail', 'problemsetQuestionList']
           nullable: true
 paths:
   /api/problems/{topic}/:
