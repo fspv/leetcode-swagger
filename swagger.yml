@@ -419,6 +419,10 @@ components:
           type: string
           nullable: true
           example: "Two Sum"
+        titleSlug:
+          type: string
+          nullable: true
+          example: "two-sum"
         frequency:
           # Frequency is reported incorrectly. It is always 0.
           # Provided here just for the reference, but you shouldn't count
@@ -715,7 +719,7 @@ components:
           nullable: true
     GraphqlProblemsetQuestionList:
       properties:
-        total:
+        totalNum:
           type: integer
           example: 2046
         questions:
@@ -818,7 +822,7 @@ components:
             #    skip: $skip
             #    filters: $filters
             #  ) {
-            #    total: totalNum
+            #    totalNum
             #    questions: data {
             #      acRate
             #      difficulty
